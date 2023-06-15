@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Movieverse</string>
+    <string name="upcoming_name">Nama Movie</string>
+    <string name="upcoming_date">Tanggal Rilis</string>
+    <string name="upcoming_author">Sutradara</string>
+    <string name="rating">Rating</string>
+    <string name="description">Deksripsi</string>
+    <string name="home">Home</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
