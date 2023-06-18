@@ -1,4 +1,4 @@
-package com.example.uts.adapter
+package com.example.movieverse.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.uts.R
-import com.example.uts.data.UpcomingData
+import com.example.movieverse.R
+import com.example.movieverse.data.UpcomingData
 
-class UpcomingAdapter (private val context: Context, private val upcoming: List<UpcomingData>, val listener: (UpcomingData) -> Unit)
+class UpcomingAdapter (private val context: Context, private var upcoming: List<UpcomingData>, val listener: (UpcomingData) -> Unit)
     : RecyclerView.Adapter<UpcomingAdapter.UpcomingViewHolder>(){
     class UpcomingViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
@@ -28,6 +28,11 @@ class UpcomingAdapter (private val context: Context, private val upcoming: List<
                 (listener(upcoming))
             }
         }
+    }
+
+    fun setFilteredList(upcomingList: List<UpcomingData>){
+        this.upcoming = upcomingList
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UpcomingViewHolder {

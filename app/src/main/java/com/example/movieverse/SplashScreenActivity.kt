@@ -1,4 +1,4 @@
-package com.example.uts
+package com.example.movieverse
 
 import android.content.Intent
 import android.os.Bundle

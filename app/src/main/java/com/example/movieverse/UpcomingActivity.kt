@@ -1,11 +1,11 @@
-package com.example.uts
+package com.example.movieverse
 
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.uts.data.UpcomingData
-import com.example.uts.fragment.UpcomingFragment
+import com.example.movieverse.data.UpcomingData
+import com.example.movieverse.fragment.UpcomingFragment
 
 class UpcomingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

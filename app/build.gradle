@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.uts'
+    namespace 'com.example.movieverse'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.uts"
+        applicationId "com.example.movieverse"
         minSdk 24
         targetSdk 33
         versionCode 1

@@ -1,11 +1,11 @@
-package com.example.uts.adapter
+package com.example.movieverse.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.example.uts.R
+import com.example.movieverse.R
 import com.smarteist.autoimageslider.SliderViewAdapter
 
 class SliderAdapter (imageurl: ArrayList<String>):

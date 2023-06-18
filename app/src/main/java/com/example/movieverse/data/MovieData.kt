@@ -1,4 +1,4 @@
-package com.example.uts.data
+package com.example.movieverse.data
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

@@ -1,4 +1,4 @@
-package com.example.uts
+package com.example.movieverse
 
 import org.junit.Test
 

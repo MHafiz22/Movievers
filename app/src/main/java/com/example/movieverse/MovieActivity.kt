@@ -1,12 +1,12 @@
-package com.example.uts
+package com.example.movieverse
 
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.uts.data.MovieData
-import com.example.uts.fragment.HomeFragment
+import com.example.movieverse.data.MovieData
+import com.example.movieverse.fragment.HomeFragment
 
 class MovieActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

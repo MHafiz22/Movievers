@@ -14,5 +14,5 @@ dependencyResolutionManagement {
         jcenter()
     }
 }
-rootProject.name = "UTS"
+rootProject.name = "Movieverse"
 include ':app'

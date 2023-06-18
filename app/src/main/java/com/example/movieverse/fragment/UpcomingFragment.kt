@@ -1,4 +1,4 @@
-package com.example.uts.fragment
+package com.example.movieverse.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,67 +6,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.uts.UpcomingActivity
-import com.example.uts.adapter.UpcomingAdapter
-import com.example.uts.data.UpcomingData
-import com.example.uts.R
+import com.example.movieverse.R
+import com.example.movieverse.UpcomingActivity
+import com.example.movieverse.adapter.UpcomingAdapter
+import com.example.movieverse.data.UpcomingData
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [UpcomingFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class UpcomingFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     private lateinit var adapter: UpcomingAdapter
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var upcomingList: List<UpcomingData>
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var upcomingList: ArrayList<UpcomingData>
+    private lateinit var searchView: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_upcoming, container, false)
     }
-
-//    companion object {
-//        /**
-//         * Use this factory method to create a new instance of
-//         * this fragment using the provided parameters.
-//         *
-//         * @param param1 Parameter 1.
-//         * @param param2 Parameter 2.
-//         * @return A new instance of fragment UpcomingFragment.
-//         */
-//        // TODO: Rename and change types and number of parameters
-//        @JvmStatic
-//        fun newInstance(param1: String, param2: String) =
-//            UpcomingFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(ARG_PARAM1, param1)
-//                    putString(ARG_PARAM2, param2)
-//                }
-//            }
-//    }
 
     companion object {
         val INTENT_PARCELABLE = "OBJECT_INTENT"
@@ -85,11 +46,40 @@ class UpcomingFragment : Fragment() {
         }
         recyclerView.adapter = adapter
         recyclerView.layoutManager = layoutManager
+
+        searchView = view.findViewById(R.id.searchView)
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filterList(newText)
+                return true
+            }
+        })
+    }
+
+    private fun filterList(query : String?){
+        if (query != null){
+            val filteredList = ArrayList<UpcomingData>()
+            for (i in upcomingList){
+                if (i.upcomingname.lowercase(Locale.ROOT).contains(query?.lowercase(Locale.ROOT) ?: "")) {
+                    filteredList.add(i)
+                }
+            }
+
+            if (filteredList.isEmpty()){
+                Toast.makeText(requireActivity(), "Tidak ada movie yang ditemukan", Toast.LENGTH_SHORT).show()
+            } else {
+                adapter.setFilteredList(filteredList)
+            }
+        }
     }
 
     private fun dataInitialize() {
 
-        upcomingList = listOf<UpcomingData>(
+        upcomingList = arrayListOf<UpcomingData>(
             UpcomingData(
                 R.drawable.upcoming1,
                 upcomingname = "Insidious: The Red Door",

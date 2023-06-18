@@ -1,4 +1,4 @@
-package com.example.uts.adapter
+package com.example.movieverse.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,8 +7,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.uts.R
-import com.example.uts.data.MovieData
+import com.example.movieverse.R
+import com.example.movieverse.data.MovieData
 
 class MovieAdapter (private val context: Context, private val movie: List<MovieData>, val listener: (MovieData) -> Unit)
     : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>(){
